@@ -308,7 +308,7 @@ export function normalizeNode(
   }
 
   const normalizedScVal: ScVal = {
-    switch: switchValue,
+    switch: switchValue as ScValType,
     value,
   }
 
@@ -549,7 +549,7 @@ export function normalizeNode(
           items[i] = createUnsupportedNode(
             appendPath(path, { type: 'index', index: i }),
             'VectorItemError',
-            scVal.value[i],
+            normalizedScVal.value[i],
           )
         }
       }
